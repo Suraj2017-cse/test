@@ -2,8 +2,9 @@
 
 *{
     box-sizing: border-box;
-    /* margin: 0;
-    padding: 0; */
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
 }
 
 :root{
@@ -18,7 +19,7 @@
     --prime3: #C4CBC6;
     --inner-text: #8577F4;
     --border-color: #808080;
-    --padding: 1rem;
+    --padding: .7rem;
     --uppercase: uppercase;
     --font-l: 'Dancing Script', cursive;
 }
@@ -26,7 +27,10 @@
 .container{
     display: flex;
     grid-gap: .8em;
+    max-width: 1280px;
+    margin: auto;
 }
+/* ***********Free for All************  */
 .success{
     background-color: var(--success-color);
 }
@@ -47,7 +51,7 @@
 }
 
 /* **********header********* */
-header h1{
+header h2{
     background-color: var(--bg-color);
     text-align: center;
     padding: var(--padding);
@@ -57,27 +61,32 @@ header h1{
 }
 
 /* ************Subject Section*************** */
-.subject a:nth-child(1){
-    text-transform: capitalize;
+.subject{
+    margin-top: var(--padding);
 }
-.subject a{
+.subject button:nth-child(1){
+    text-transform: capitalize;
+    background-color: var(--hover-color);
+}
+.subject button{
     text-transform: var(--uppercase);
     color: var(--text-color);
     background-color: var(--bg-color);
     padding: .4rem 1.3rem;
-    margin-left: 1rem;
-    text-decoration: none;
+    margin-top: .3rem;
+    border: none;
+    cursor: pointer;
 }
-.subject a:hover{
+.subject button:hover{
     background-color: var(--hover-color);
 }
 hr{
-    margin-top: 1rem;
+    margin-top: var(--padding);
 }
 
 /* ***********Question Section********* */
 .question{
-    margin-top: 1rem;
+    margin-top: var(--padding);
     border: 1px solid var(--border-color);
     border-radius: 5px;
 }
@@ -92,10 +101,9 @@ hr{
     content: "View in:";
 }
 .Question-content{
-    /* padding: 10px; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    /* grid-gap: 1.3rem; */
+    height: 68vh;
 }
 .Question-content h4{
     border-bottom: 1px solid var(--border-color);
@@ -112,7 +120,6 @@ hr{
     font-size: 14px;
 }
 .Question-content p{
-    /* margin: 0; */
     padding-left: .5rem;
     padding-right: 2rem;
     text-align: justify;
@@ -122,9 +129,12 @@ hr{
 }
 .question-item .option{
     border-bottom: 1px solid var(--border-color);
-    padding: 1rem;
+    padding: var(--padding);
 }
-.question-item .option i{
+.question-item p span{
+    font-family: var(--font-l);
+}
+.question-item .option span{
     font-family: var(--font-l);
 }
 .question-item .option math{
@@ -132,11 +142,12 @@ hr{
 }
 
 .left .btn{
-    margin: 1rem 0;
+    margin: .8rem 0;
 }
 .left .btn button{
     background-color: var(--bg-color);
     border: none;
+    margin-top: .5rem;
     color: var(--text-color);
     padding: .5em 1em;
     text-transform: var(--uppercase);
@@ -146,9 +157,8 @@ hr{
     background-color: var(--hover-color);
 }
 
-/* <!-- ***********right Side Container*********** --> */
+/* ***********right Side Container*********** */
 .right .profile{
-    margin-top: -22px;
     display: flex;
     background-color: #CEECEE;
     border-radius: .4rem;
@@ -159,14 +169,20 @@ hr{
     height: 80px;
     border-top-left-radius: .4rem;
 }
+.right .person-deatils{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
 .que-pallete, .legend{
     background-color: #CEECEE;
     border: 1px solid var(--border-color);
-    margin-top: 1rem;
+    margin-top: var(--padding);
+    margin-bottom: .2rem;
     border-radius: .5em;
 }
 .que-pallete{
-    height: 175px;
+    height: 210px;
 }
 .que-pallete h5 , .legend h5{
     background-color: var(--bg-color);
@@ -179,7 +195,7 @@ hr{
 }
 .que-pallete .num{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(50px,1fr));
 }
 .que-pallete .num a{
     margin: .1rem;
@@ -193,10 +209,9 @@ hr{
 .legend .ans{
     display: flex;
     flex-wrap: wrap;
-    /* display: grid;
-    grid-template-columns: repeat(2,1fr); */
 }
 .legend .ans button{
+    flex: 47%;
     margin: .2rem;
     border: none;
     padding: .4rem;
@@ -231,17 +246,25 @@ footer div{
 }
 
 
+/* for tablet */
+
+@media only screen and (max-width:1080px) {
+    .container{
+        width: 96%;
+    }
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* for Mobile */
+@media only screen and (max-width:780px) {
+    .container{
+        display: block;
+        width: 96%;
+    }
+    .right{
+        margin-top: 2rem;
+    }
+    footer{
+        margin-top: var(--padding);
+    }
+}

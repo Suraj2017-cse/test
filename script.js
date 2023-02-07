@@ -26,7 +26,6 @@ var countDownTarget = new Date().getTime() + 01 * 2.5 * 60 * 60 * 1000;
 function showClock(target) {
   const distance = target - new Date().getTime();
   const hours = distance < 0 ? 0 : Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  // const hours = distance < 0 ? 0 : Math.floor((distance % (1000 * 60 * 60 * 60)) / (1000 * 60));
   const mins = distance < 0 ? 0 : Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const secs = distance < 0 ? 0 : Math.floor((distance % (1000 * 60)) / 1000);
 
